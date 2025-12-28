@@ -174,9 +174,9 @@ export default function AdminPage() {
 					animate={{ opacity: 1, y: 0 }}
 					className="card max-w-md"
 				>
-						<h1 className="text-3xl font-bold mb-6 text-center">
-							Đăng nhập - Cao Đức
-						</h1>
+					<h1 className="text-3xl font-bold mb-6 text-center">
+						Đăng nhập - Cao Đức
+					</h1>
 					<form onSubmit={handleLogin} className="space-y-4">
 						<div>
 							<label className="block text-sm font-medium text-gray-700 mb-2">
@@ -206,9 +206,9 @@ export default function AdminPage() {
 	return (
 		<div className="min-h-screen py-8 px-4">
 			<div className="max-w-6xl mx-auto">
-			<h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-				Cao Đức Dashboard
-			</h1>
+				<h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+					Cao Đức Dashboard
+				</h1>
 
 				{/* Tabs */}
 				<div className="flex gap-4 mb-6 border-b-2 border-gray-200">
