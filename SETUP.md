@@ -8,6 +8,7 @@
 2. Tạo project mới
 3. Lấy connection string từ Settings > Database
 4. Thêm vào `.env` của backend:
+
 ```
 DATABASE_URL=postgresql://user:password@host:port/database
 ```
@@ -16,10 +17,13 @@ DATABASE_URL=postgresql://user:password@host:port/database
 
 1. Cài đặt PostgreSQL
 2. Tạo database:
+
 ```sql
 CREATE DATABASE memory_wall;
 ```
+
 3. Thêm vào `.env`:
+
 ```
 DATABASE_URL=postgresql://postgres:password@localhost:5432/memory_wall
 ```
@@ -35,6 +39,11 @@ python init_db.py
 uvicorn main:app --reload
 ```
 
+**Cấu hình CORS trong `.env`:**
+
+-   Development: `ALLOWED_ORIGINS=*` hoặc `ALLOWED_ORIGINS=http://localhost:3000`
+-   Production: `ALLOWED_ORIGINS=https://yourdomain.com,https://www.yourdomain.com`
+
 Backend sẽ chạy tại: http://localhost:8000
 
 ## Bước 3: Setup Cloudinary (cho upload ảnh)
@@ -42,6 +51,7 @@ Backend sẽ chạy tại: http://localhost:8000
 1. Tạo tài khoản tại [cloudinary.com](https://cloudinary.com)
 2. Lấy Cloud Name, API Key, API Secret
 3. Thêm vào `.env` của backend:
+
 ```
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
@@ -65,15 +75,13 @@ Frontend sẽ chạy tại: http://localhost:3000
 
 1. Truy cập http://localhost:3000
 2. Đăng nhập admin tại http://localhost:3000/admin
-   - Password: giá trị trong `ADMIN_PASSWORD` của backend `.env`
+    - Password: giá trị trong `ADMIN_PASSWORD` của backend `.env`
 3. Tạo receiver và memory
 4. Test trang `/for-you` để gửi message
 5. Test trang `/to/{token}` để xem memory
 
 ## Lưu ý
 
-- Đảm bảo backend chạy trước khi start frontend
-- Hand gesture detection cần webcam và quyền truy cập
-- Trong production, cần cấu hình CORS đúng domain
-
-
+-   Đảm bảo backend chạy trước khi start frontend
+-   Hand gesture detection cần webcam và quyền truy cập
+-   Trong production, cần cấu hình CORS đúng domain

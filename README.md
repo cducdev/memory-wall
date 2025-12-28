@@ -45,6 +45,9 @@ cp .env.example .env
 3. Cập nhật các biến môi trường trong `.env`:
 - `DATABASE_URL`: URL kết nối PostgreSQL
 - `ADMIN_PASSWORD`: Mật khẩu admin
+- `ALLOWED_ORIGINS`: Các domain được phép truy cập API (production)
+  - Development: `*` hoặc `http://localhost:3000`
+  - Production: `https://yourdomain.com,https://www.yourdomain.com` (phân cách bằng dấu phẩy)
 - `CLOUDINARY_*`: Thông tin Cloudinary (nếu dùng)
 - `SUPABASE_URL` và `SUPABASE_KEY`: Nếu dùng Supabase
 
@@ -104,7 +107,10 @@ npm run dev
 
 ## 📦 Deploy
 
-Xem chi tiết trong `project-detail.md` phần "HƯỚNG DẪN DEPLOY TRÊN VPS"
+Xem chi tiết trong:
+- `project-detail.md` - Kiến trúc và tổng quan dự án
+- `DEPLOY_HTTPS.md` - **Hướng dẫn setup HTTPS/SSL cho VPS** (Let's Encrypt)
+- `SETUP.md` - Hướng dẫn setup nhanh
 
 ### Tóm tắt:
 

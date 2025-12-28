@@ -26,12 +26,22 @@ except ImportError:
 
 app = FastAPI(title="Memory Wall API")
 
-# CORS
+# CORS Configuration
+# Đọc allowed origins từ environment variable
+# Format: "https://domain1.com,https://domain2.com" hoặc "*" cho development
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*")
+if ALLOWED_ORIGINS == "*":
+    # Development mode - allow all origins
+    origins = ["*"]
+else:
+    # Production mode - chỉ cho phép các domain được cấu hình
+    origins = [origin.strip() for origin in ALLOWED_ORIGINS.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Trong production nên giới hạn domain
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
